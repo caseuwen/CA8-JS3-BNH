@@ -42,8 +42,8 @@
                 break;
             }
             //make computer choice
-            let randomIndex = Math.floor(Math.random() * choices.length);
-            computerChoice = chocie[randomIndex];
+            let randomIndex = Math.floor(Math.random() * choice.length);
+            computerChoice = choice[randomIndex];
             //generate the selection result message
             message = `${playername}, you picked ${playerChoice}! The computer picked ${computerChoice}!`;
             document.getElementById("Message").innerHTML = message;
