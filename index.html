@@ -11,44 +11,82 @@
         <p id = "Message">welcome to bear ninja hunter game</p>
         <p id = "result"></p>
     <script>
-        let playername = prompt("welcome to Bear Hunter Ninja!Please enter your name to get started:");
-        alert("Hi," + playername + " Let's Play");
-        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
-        const computerChoice = "Bear";
-        let message = `${playername}, you picked ${playerChoice}! The computer picked Bear!`;
-        document.getElementById("Message").innerHTML = message;
-        console.log(message);
-        let result = "";
-        if(playerChoice == computerChoice){
-            result = "tie";
-        } else if (playerChoice === "Bear" && computerChoice === "Ninja") {
-            result = "win";
-        } else if (playerChoice === "Bear" && computerChoice === "Hunter") {
-            result = "lose";
-        } else if (playerChoice === "Ninja" && computerChoice === "Bear") {
-            result = "lose";
-        } else if (playerChoice === "Ninja" && computerChoice === "Hunter") {
-            result = "win";
-        } else if (playerChoice === "Hunter" && computerChoice === "Bear") {
-            result = "win";
-        } else if (playerChoice === "Hunter" && computerChoice === "Ninja") {
-            result = "lose";
+        //creating the variables
+        const chocie = ["bear", "ninja","hunter"];
+        let playername;
+        let playerChoice;
+        let computerChoice;
+        let result;
+        let outcome;
+        let message;
+        let playAgain = true;
+        while(playAgain){
+            //greeting
+            playername = prompt("welcome to Bear Hunter Ninja!Please enter your name to get started:");
+            //ask reload if name is not valid
+            if(playername === null || playername == ""){
+                alert("Game cancelled or name was empty. \n please reload the page to try again");
+                break;
+            }
+            alert("Hi," + playername + " Let's Play");
+
+            //make player choice
+            playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+            if(playerChoice === null){
+                alert("invalid input, please press f5 to reload");
+                break;
+            }
+            playerChoice = playerChoice.toLowerCase();
+            if(playerChoice != "bear" && playerChoice != "ninja" && playerChoice != "hunter"){
+                alert("invalid input, please press f5 to reload");
+                break;
+            }
+            //make computer choice
+            let randomIndex = Math.floor(Math.random() * choices.length);
+            computerChoice = chocie[randomIndex];
+            //generate the selection result message
+            message = `${playername}, you picked ${playerChoice}! The computer picked Bear!`;
+            document.getElementById("Message").innerHTML = message;
+            console.log(message);
+            //generate the result
+            result = "";
+            if(playerChoice == computerChoice){
+                result = "tie";
+            } else if (playerChoice === "Bear" && computerChoice === "Ninja") {
+                result = "win";
+            } else if (playerChoice === "Bear" && computerChoice === "Hunter") {
+                result = "lose";
+            } else if (playerChoice === "Ninja" && computerChoice === "Bear") {
+                result = "lose";
+            } else if (playerChoice === "Ninja" && computerChoice === "Hunter") {
+                result = "win";
+            } else if (playerChoice === "Hunter" && computerChoice === "Bear") {
+                result = "win";
+            } else if (playerChoice === "Hunter" && computerChoice === "Ninja") {
+                result = "lose";
+            }
+            //output the result
+            outcome = "";
+            switch(result) {
+                case "win":
+                    outcome = "You win";
+                    break;
+                case "lose":
+                    outcome = "You lose";
+                    break;
+                case "tie":
+                    outcome = "it's a tie";
+                    break;
+                }
+            document.getElementById("result").innerHTML = outcome;
+            console.log(outcome);
+            //ask if play again
+            let ifPlayAgain = prompt(playername + "would you like to play again, Yes or No?");
+            ifPlayAgain = ifPlayAgain.toLowerCase();
+            if(ifPlayAgain === "no" || ifPlayAgain === null){
+                playAgain = false;
+            }
         }
-        let outcome = "";
-        switch(result) {
-            case "win":
-                outcome = "You win";
-                break;
-            case "lose":
-                outcome = "You lose";
-                break;
-            case "tie":
-                outcome = "it's a tie";
-                break;
-        }
-        document.getElementById("result").innerHTML = outcome;
-        console.log(outcome);
-        
     </script>
     </body>
 </html>
