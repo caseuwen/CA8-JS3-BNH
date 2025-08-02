@@ -12,7 +12,7 @@
         <p id = "result"></p>
     <script>
         //creating the variables
-        const chocie = ["bear", "ninja","hunter"];
+        const choice = ["bear", "ninja","hunter"];
         let playername;
         let playerChoice;
         let computerChoice;
@@ -45,24 +45,24 @@
             let randomIndex = Math.floor(Math.random() * choices.length);
             computerChoice = chocie[randomIndex];
             //generate the selection result message
-            message = `${playername}, you picked ${playerChoice}! The computer picked Bear!`;
+            message = `${playername}, you picked ${playerChoice}! The computer picked ${computerChoice}!`;
             document.getElementById("Message").innerHTML = message;
             console.log(message);
             //generate the result
             result = "";
             if(playerChoice == computerChoice){
                 result = "tie";
-            } else if (playerChoice === "Bear" && computerChoice === "Ninja") {
+            } else if (playerChoice === "bear" && computerChoice === "ninja") {
                 result = "win";
-            } else if (playerChoice === "Bear" && computerChoice === "Hunter") {
+            } else if (playerChoice === "bear" && computerChoice === "hunter") {
                 result = "lose";
-            } else if (playerChoice === "Ninja" && computerChoice === "Bear") {
+            } else if (playerChoice === "ninja" && computerChoice === "bear") {
                 result = "lose";
-            } else if (playerChoice === "Ninja" && computerChoice === "Hunter") {
+            } else if (playerChoice === "ninja" && computerChoice === "hunter") {
                 result = "win";
-            } else if (playerChoice === "Hunter" && computerChoice === "Bear") {
+            } else if (playerChoice === "hunter" && computerChoice === "bear") {
                 result = "win";
-            } else if (playerChoice === "Hunter" && computerChoice === "Ninja") {
+            } else if (playerChoice === "hunter" && computerChoice === "ninja") {
                 result = "lose";
             }
             //output the result
