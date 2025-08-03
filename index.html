@@ -7,8 +7,8 @@
         <title> Bear Ninja Hunter Game</title> 
     </head>
     <body>
-        <h1>bear ninja hunter game</h1>
-        <p id = "Message">welcome to bear ninja hunter game</p>
+        <h1>Bear ninja hunter game</h1>
+        <p id = "Message">Welcome to bear ninja hunter game</p>
         <p id = "result"></p>
     <script>
         //creating the variables
@@ -22,25 +22,25 @@
         let playAgain = true;
         while(playAgain){
             //greeting
-            playername = prompt("welcome to Bear Hunter Ninja!Please enter your name to get started:");
+            playername = prompt("Welcome to Bear Hunter Ninja!Please enter your name to get started:");
             //ask reload if name is not valid
             if(playername === null || playername == ""){
-                alert("Game cancelled or name was empty. \n please reload the page to try again");
+                alert("Game cancelled or name was empty. \n Please reload the page to try again");
                 break;
             }
-            alert("Hi," + playername + " Let's Play");
+            alert("Hi," + playername + "! Let's Play");
 
             //make player choice
             playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
             if(playerChoice === null){
-                alert("invalid input, please press f5 to reload");
+                alert("Invalid input. Please press f5 to reload");
                 break;
             }
             playerChoice = playerChoice.toLowerCase();
             if(playerChoice != "bear" && playerChoice != "ninja" && playerChoice != "hunter"){
-                alert("invalid input, please press f5 to reload");
+                alert("Invalid input, please press f5 to reload");
                 break;
-            }
+            } 
             //make computer choice
             let randomIndex = Math.floor(Math.random() * choice.length);
             computerChoice = choice[randomIndex];
@@ -75,13 +75,13 @@
                     outcome = "You lose";
                     break;
                 case "tie":
-                    outcome = "it's a tie";
+                    outcome = "It's a tie";
                     break;
                 }
             document.getElementById("result").innerHTML = outcome;
             console.log(outcome);
             //ask if play again
-            let ifPlayAgain = prompt(playername + "would you like to play again, Yes or No?");
+            let ifPlayAgain = prompt(playername + "Would you like to play again, Yes or No?");
             ifPlayAgain = ifPlayAgain.toLowerCase();
             if(ifPlayAgain === "no" || ifPlayAgain === null){
                 playAgain = false;
